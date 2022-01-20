@@ -31,7 +31,6 @@ export default ImgSlider;
 
 const Carosel = styled(Slider)`
     margin-top: 20px;
-    width: 99.9vw;
     ul li button{
         &:before{
             font-size: 10px;
