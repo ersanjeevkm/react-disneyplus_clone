@@ -10,13 +10,13 @@ function Movies() {
                 <img src="https://img.etimg.com/thumb/msid-69724545,width-650,imgsize-1032582,,resizemode-4,quality-100/hugh-jackman-holds-a-guinness-world-record-for-longest-career-as-a-live-action-marvel-superhero-for-his-role-as-wolverine-.jpg" />
             </Wrap>
             <Wrap>
-                <img src="https://img.etimg.com/thumb/msid-69724545,width-650,imgsize-1032582,,resizemode-4,quality-100/hugh-jackman-holds-a-guinness-world-record-for-longest-career-as-a-live-action-marvel-superhero-for-his-role-as-wolverine-.jpg" />
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7rSdce_cjZb_F-WZY1PJGEKI7rjzYPe1hpu1eshcv1QLndX-bRusP_AaIODqnHpwVvqo&usqp=CAU" />
             </Wrap>
             <Wrap>
                 <img src="https://img.etimg.com/thumb/msid-69724545,width-650,imgsize-1032582,,resizemode-4,quality-100/hugh-jackman-holds-a-guinness-world-record-for-longest-career-as-a-live-action-marvel-superhero-for-his-role-as-wolverine-.jpg" />
             </Wrap>
             <Wrap>
-                <img src="https://img.etimg.com/thumb/msid-69724545,width-650,imgsize-1032582,,resizemode-4,quality-100/hugh-jackman-holds-a-guinness-world-record-for-longest-career-as-a-live-action-marvel-superhero-for-his-role-as-wolverine-.jpg" />
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7rSdce_cjZb_F-WZY1PJGEKI7rjzYPe1hpu1eshcv1QLndX-bRusP_AaIODqnHpwVvqo&usqp=CAU" />
             </Wrap>
         </Content>
     </Container>
