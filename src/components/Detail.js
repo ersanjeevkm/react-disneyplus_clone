@@ -1,40 +1,69 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import styled from 'styled-components'
+import {useParams} from 'react-router-dom'
+import db from '../firebase';
+import { collection, getDocs } from "firebase/firestore"; 
 
-function Detail() {
-  return (
-    <Container>
-        <Background>
-            <img src="https://wallpaperaccess.com/full/1186918.jpg" />
-        </Background>
-        <ImgTitle>
-            <img src="https://toppng.com/uploads/preview/x-men-legends-ii-x-men-legends-logo-1156322683339ifnt0vxa.png" />
-        </ImgTitle>
+const Detail=()=> {
+    const {id} = useParams();
+    const [movie, setMovie] = useState({});
 
-        <Controls>
-            <PlayBtn>
-                <img src="/images/play-icon-black.png" />
-                <span>PLAY</span>
-            </PlayBtn>
-            <TrailerBtn>
-                <img src="/images/play-icon-white.png" />
-                <span>TRAILER</span>
-            </TrailerBtn>
-            <AddBtn>
-                <span>+</span>
-            </AddBtn>
-            <GrpWatchBtn>
-                <img src="images/group-icon.png" />
-            </GrpWatchBtn>
-        </Controls>
-        <SubTitle>
-            lorem ipsum dolor sit amet, consectetur adip
-        </SubTitle>
-        <Description>
-            lorem ipsum dolor sit amet, consectetur adip
-        </Description>
-    </Container>
-  )
+
+    const fetchMovie = async (ID)=>{
+        try{
+                const querySnapshot = await getDocs(collection(db, "movies"));
+                querySnapshot.forEach(doc => {
+                    if(doc.id === ID){
+                        return setMovie((doc.data()));
+                    }
+                });
+        }catch(error){
+            alert(error.message)
+        }
+    };
+
+    useEffect(() => {
+        fetchMovie(id);
+
+        return () => {
+            setMovie({});
+          };
+
+    }, [id])
+
+    return (
+        <Container>
+            <Background>
+                <img src={movie.backgroundImg} alt='Background' />
+            </Background>
+            <ImgTitle>
+                <img src={movie.titleImg} alt='Title' />
+            </ImgTitle>
+
+            <Controls>
+                <PlayBtn>
+                    <img src="/images/play-icon-black.png" />
+                    <span>PLAY</span>
+                </PlayBtn>
+                <TrailerBtn>
+                    <img src="/images/play-icon-white.png" />
+                    <span>TRAILER</span>
+                </TrailerBtn>
+                <AddBtn>
+                    <span>+</span>
+                </AddBtn>
+                <GrpWatchBtn>
+                    <img src="images/group-icon.png" />
+                </GrpWatchBtn>
+            </Controls>
+            <SubTitle>
+                {movie.subTitle}
+            </SubTitle>
+            <Description>
+                {movie.description}
+            </Description>
+        </Container>
+    )
 }
 
 export default Detail;
