@@ -1,25 +1,23 @@
 import React from 'react';
 import styled from 'styled-components'
+import {selectMovies} from "../features/movie/movieSlice"
+import {useSelector} from "react-redux"
 
 function Movies() {
-  return (
-    <Container>
-        <h4>Recommended for You</h4>
-        <Content>
-            <Wrap>
-                <img src="https://img.etimg.com/thumb/msid-69724545,width-650,imgsize-1032582,,resizemode-4,quality-100/hugh-jackman-holds-a-guinness-world-record-for-longest-career-as-a-live-action-marvel-superhero-for-his-role-as-wolverine-.jpg" />
-            </Wrap>
-            <Wrap>
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7rSdce_cjZb_F-WZY1PJGEKI7rjzYPe1hpu1eshcv1QLndX-bRusP_AaIODqnHpwVvqo&usqp=CAU" />
-            </Wrap>
-            <Wrap>
-                <img src="https://img.etimg.com/thumb/msid-69724545,width-650,imgsize-1032582,,resizemode-4,quality-100/hugh-jackman-holds-a-guinness-world-record-for-longest-career-as-a-live-action-marvel-superhero-for-his-role-as-wolverine-.jpg" />
-            </Wrap>
-            <Wrap>
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7rSdce_cjZb_F-WZY1PJGEKI7rjzYPe1hpu1eshcv1QLndX-bRusP_AaIODqnHpwVvqo&usqp=CAU" />
-            </Wrap>
-        </Content>
-    </Container>
+    const movies = useSelector(selectMovies);
+
+    return (
+        <Container>
+            <h4>Recommended for You</h4>
+            <Content>
+                {movies && movies.map((movie) => 
+                    <Wrap key={movie.id}>
+                        <img src={movie.cardImg} />
+                    </Wrap>
+                )}
+                
+            </Content>
+        </Container>
     );
 }
 
